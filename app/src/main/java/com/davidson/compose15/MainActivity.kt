@@ -3,41 +3,35 @@ package com.davidson.compose15
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.activity.viewModels
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.navigation.NavHostController
+import com.davidson.compose15.navigation.SetupNavigation
+import com.davidson.compose15.ui.shared_vm.SharedViewModel
 import com.davidson.compose15.ui.theme.Compose15DailyPlannerTheme
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
+@ExperimentalAnimationApi
+@ExperimentalMaterialApi
 class MainActivity : ComponentActivity() {
+
+    private lateinit var navController: NavHostController
+    private val sharedViewModel: SharedViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             Compose15DailyPlannerTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
+                navController = rememberAnimatedNavController()
+                SetupNavigation(
+                    navController = navController,
+                    sharedViewModel = sharedViewModel
+                )
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    Compose15DailyPlannerTheme {
-        Greeting("Android")
     }
 }
