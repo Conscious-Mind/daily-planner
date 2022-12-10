@@ -23,7 +23,7 @@ object DatabaseModule {
         context,
         TaskDatabase::class.java,
         DATABASE_NAME
-    ).build()
+    ).createFromAsset("database/populate.db").build()
 
     @Singleton
     @Provides
