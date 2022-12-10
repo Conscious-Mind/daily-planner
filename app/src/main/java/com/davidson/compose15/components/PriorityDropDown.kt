@@ -84,7 +84,8 @@ fun PriorityDropDown(
         }
         DropdownMenu(
             modifier = Modifier
-                .width(with(LocalDensity.current) { parentSize.width.toDp() }),
+                .width(with(LocalDensity.current) { parentSize.width.toDp() })
+                .background(MaterialTheme.colors.secondaryVariant),
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {

@@ -159,6 +159,7 @@ fun DisplayTasks(
                 )
             ) {
                 SwipeToDismiss(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                     state = dismissState,
                     directions = setOf(DismissDirection.EndToStart),
                     dismissThresholds = { FractionalThreshold(fraction = 0.2f) },
@@ -202,7 +203,7 @@ fun TaskItem(
     Surface(
         modifier = Modifier
             .fillMaxWidth(),
-        color = MaterialTheme.colors.taskItemBackgroundColor,
+        color = MaterialTheme.colors.surface,
         shape = RectangleShape,
         elevation = TASK_ITEM_ELEVATION,
         onClick = {

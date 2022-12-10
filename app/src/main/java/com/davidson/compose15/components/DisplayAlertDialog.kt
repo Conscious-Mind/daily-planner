@@ -2,6 +2,7 @@ package com.davidson.compose15.components
 
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.davidson.compose15.R
@@ -35,13 +36,16 @@ fun DisplayAlertDialog(
                     onClick = {
                         onYesClicked()
                         closeDialog()
-                    })
+                    }, colors = ButtonDefaults.buttonColors(MaterialTheme.colors.error))
                 {
                     Text(text = stringResource(id = R.string.yes))
                 }
             },
             dismissButton = {
-                OutlinedButton(onClick = { closeDialog() })
+                OutlinedButton(
+                    onClick = { closeDialog() },
+                    colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colors.onSurface)
+                )
                 {
                     Text(text = stringResource(id = R.string.no))
                 }

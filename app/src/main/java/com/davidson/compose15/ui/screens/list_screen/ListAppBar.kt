@@ -23,9 +23,9 @@ import com.davidson.compose15.components.DisplayAlertDialog
 import com.davidson.compose15.components.PriorityItem
 import com.davidson.compose15.data.models.Priority
 import com.davidson.compose15.ui.shared_vm.SharedViewModel
+import com.davidson.compose15.ui.theme.Compose15DailyPlannerTheme
 import com.davidson.compose15.ui.theme.LARGE_PADDING
 import com.davidson.compose15.ui.theme.TOP_APP_BAR_HEIGHT
-import com.davidson.compose15.ui.theme.topAppBarBackgroundColor
 import com.davidson.compose15.ui.theme.topAppBarContentColor
 import com.davidson.compose15.util.Action
 import com.davidson.compose15.util.SearchAppBarState
@@ -80,7 +80,8 @@ fun DefaultListAppBar(
         title = {
             Text(
                 text = stringResource(id = R.string.list_screen_title),
-                color = MaterialTheme.colors.topAppBarContentColor
+                color = MaterialTheme.colors.topAppBarContentColor,
+                style = MaterialTheme.typography.h1
             )
         },
         actions = {
@@ -90,7 +91,8 @@ fun DefaultListAppBar(
                 onDeleteAllConfirmed = onDeleteAllConfirmed
             )
         },
-        backgroundColor = MaterialTheme.colors.topAppBarBackgroundColor
+        backgroundColor = MaterialTheme.colors.primary,
+        contentColor = MaterialTheme.colors.onPrimary
     )
 }
 
@@ -209,7 +211,7 @@ fun SearchAppBar(
             .fillMaxWidth()
             .height(TOP_APP_BAR_HEIGHT),
         elevation = AppBarDefaults.TopAppBarElevation,
-        color = MaterialTheme.colors.topAppBarBackgroundColor
+        color = MaterialTheme.colors.primary
     ) {
         TextField(
             modifier = Modifier
@@ -223,7 +225,7 @@ fun SearchAppBar(
                     modifier = Modifier
                         .alpha(ContentAlpha.medium),
                     text = stringResource(id = R.string.search_placeholder),
-                    color = Color.White
+                    color = MaterialTheme.colors.onPrimary
                 )
             },
             textStyle = TextStyle(
@@ -283,20 +285,25 @@ fun SearchAppBar(
 @Composable
 @Preview
 private fun DefaultListAppBarPreview() {
-    DefaultListAppBar(
-        onSearchClicked = {},
-        onSortClicked = {},
-        onDeleteAllConfirmed = {}
-    )
+    Compose15DailyPlannerTheme {
+        DefaultListAppBar(
+            onSearchClicked = {},
+            onSortClicked = {},
+            onDeleteAllConfirmed = {}
+        )
+    }
 }
 
 @Composable
 @Preview
 private fun SearchAppBarPreview() {
-    SearchAppBar(
-        text = "",
-        onTextChange = {},
-        onCloseClicked = {},
-        onSearchClicked = {}
-    )
+    Compose15DailyPlannerTheme {
+        SearchAppBar(
+            text = "",
+            onTextChange = {},
+            onCloseClicked = {},
+            onSearchClicked = {}
+        )
+    }
+
 }

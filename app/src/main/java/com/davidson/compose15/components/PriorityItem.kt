@@ -17,7 +17,7 @@ import com.davidson.compose15.ui.theme.PRIORITY_INDICATOR_SIZE
 @Composable
 fun PriorityItem(priority: Priority) {
     Row(
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Canvas(modifier = Modifier.size(PRIORITY_INDICATOR_SIZE)) {
             drawCircle(color = priority.color)

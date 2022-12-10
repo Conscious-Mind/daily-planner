@@ -55,6 +55,7 @@ fun ListScreen(
                 searchAppBarState = searchAppBarState,
                 searchTextState = searchTextState
             )
+
         },
         content = {
             ListContent(

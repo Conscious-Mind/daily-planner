@@ -44,10 +44,11 @@ fun NewTaskAppBar(
         title = {
             Text(
                 text = stringResource(id = R.string.add_task),
-                color = MaterialTheme.colors.topAppBarContentColor
+                color = MaterialTheme.colors.topAppBarContentColor,
+                style = MaterialTheme.typography.h1
             )
         },
-        backgroundColor = MaterialTheme.colors.topAppBarBackgroundColor,
+        backgroundColor = MaterialTheme.colors.primary,
         actions = {
             AddAction(onAddClicked = navigateToListScreen)
         }
@@ -92,12 +93,13 @@ fun ExistingTaskAppBar(
         title = {
             Text(
                 text = selectedTask.title,
-                color = MaterialTheme.colors.topAppBarContentColor,
+                color = MaterialTheme.colors.onPrimary,
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
+                style = MaterialTheme.typography.h1
             )
         },
-        backgroundColor = MaterialTheme.colors.topAppBarBackgroundColor,
+        backgroundColor = MaterialTheme.colors.primary,
         actions = {
             ExistingTaskAppBarActions(
                 selectedTask = selectedTask,
@@ -153,7 +155,7 @@ fun DeleteAction(
         Icon(
             imageVector = Icons.Filled.Delete,
             contentDescription = stringResource(id = R.string.delete_icon),
-            tint = MaterialTheme.colors.topAppBarContentColor
+            tint = MaterialTheme.colors.onPrimary
         )
     }
 }
@@ -166,7 +168,7 @@ fun UpdateAction(
         Icon(
             imageVector = Icons.Filled.Check,
             contentDescription = stringResource(id = R.string.update_icon),
-            tint = MaterialTheme.colors.topAppBarContentColor
+            tint = MaterialTheme.colors.onPrimary
         )
     }
 }

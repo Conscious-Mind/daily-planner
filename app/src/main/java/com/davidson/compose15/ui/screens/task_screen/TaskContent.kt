@@ -2,10 +2,7 @@ package com.davidson.compose15.ui.screens.task_screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -13,6 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.davidson.compose15.R
 import com.davidson.compose15.components.PriorityDropDown
 import com.davidson.compose15.data.models.Priority
+import com.davidson.compose15.ui.theme.Compose15DailyPlannerTheme
 import com.davidson.compose15.ui.theme.LARGE_PADDING
 import com.davidson.compose15.ui.theme.MEDIUM_PADDING
 
@@ -37,7 +35,14 @@ fun TaskContent(
             onValueChange = { onTitleChange(it) },
             label = { Text(text = stringResource(id = R.string.title)) },
             textStyle = MaterialTheme.typography.body1,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = MaterialTheme.colors.secondary,
+                focusedLabelColor = MaterialTheme.colors.onPrimary,
+                cursorColor = MaterialTheme.colors.onPrimary,
+                trailingIconColor = MaterialTheme.colors.onPrimary,
+                leadingIconColor = MaterialTheme.colors.onPrimary,
+            )
         )
         Divider(
             modifier = Modifier.height(MEDIUM_PADDING),
@@ -52,7 +57,14 @@ fun TaskContent(
             value = description,
             onValueChange = { onDescriptionChange(it) },
             label = { Text(text = stringResource(id = R.string.description)) },
-            textStyle = MaterialTheme.typography.body1
+            textStyle = MaterialTheme.typography.body1,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = MaterialTheme.colors.secondary,
+                focusedLabelColor = MaterialTheme.colors.onPrimary,
+                cursorColor = MaterialTheme.colors.onPrimary,
+                trailingIconColor = MaterialTheme.colors.onPrimary,
+                leadingIconColor = MaterialTheme.colors.onPrimary,
+            )
         )
     }
 }
@@ -61,12 +73,15 @@ fun TaskContent(
 @Composable
 @Preview
 private fun TaskContentPreview() {
-    TaskContent(
-        title = "",
-        onTitleChange = {},
-        description = "",
-        onDescriptionChange = {},
-        priority = Priority.LOW,
-        onPrioritySelected = {}
-    )
+    Compose15DailyPlannerTheme {
+        TaskContent(
+            title = "",
+            onTitleChange = {},
+            description = "",
+            onDescriptionChange = {},
+            priority = Priority.LOW,
+            onPrioritySelected = {}
+        )
+    }
+
 }

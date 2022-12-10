@@ -33,8 +33,25 @@ val Colors.fabBackgroundColor: Color
 
 val Colors.topAppBarContentColor: Color
     @Composable
-    get() = if (isLight) Color.White else LightGray
+    get() = if (isLight) Color.Black else LightGray
 
 val Colors.topAppBarBackgroundColor: Color
     @Composable
     get() = if (isLight) Purple500 else Color.Black
+
+
+//Light Theme
+val Grey50 = Color(0xFFF8F9FA)
+val Grey900 = Color(0xFF202124)
+val Grey700 = Color(0xFF5F6368)
+val Green50 = Color(0xFFE6F4EA)
+val Green100 = Color(0xFFCEEAD6)
+val Green150 = Color(0xFFC6F7D4)
+val Green500 = Color(0xFFE6F4EA)
+
+//Dark Theme
+val White = Color(0xFFFFFFFF)
+val Grey100 = Color(0xFFF1F3F4)
+val Cyan900 = Color(0xFF007B83)
+val Cyan700 = Color(0xFF129EAF)
+val Cyan500 = Color(0xFF2BBED1)
